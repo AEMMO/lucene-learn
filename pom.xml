@@ -15,10 +15,29 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- 单元测试 -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- Lucene 核心 -->
 			<dependency>
 				<groupId>org.apache.lucene</groupId>
 				<artifactId>lucene-core</artifactId>
 				<version>6.3.0</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.apache.lucene</groupId>
+			    <artifactId>lucene-analyzers-common</artifactId>
+			    <version>6.3.0</version>
+			</dependency>
+			<!-- Lucene 分词器 -->
+			<dependency>
+			    <groupId>org.apache.lucene</groupId>
+			    <artifactId>lucene-analyzers</artifactId>
+			    <version>3.6.0</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
