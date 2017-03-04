@@ -2,12 +2,14 @@
 #java
 *.project
 *.settings
+/.settings
 
 #maven file
 /target
 
 # Compiled class file
 *.class
+*.classpath
 
 # Log file
 *.log
