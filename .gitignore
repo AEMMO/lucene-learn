@@ -1,29 +1,29 @@
-
-#java
-*.project
-*.settings
-/.settings
-
-#maven file
-/target
-
-# Compiled class file
-*.class
-*.classpath
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-#*.jar
-#*.war
-*.ear
+# maven ignore
+target/
+*.jar
+*.war
 *.zip
+*.tar
 *.tar.gz
-*.rar
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
