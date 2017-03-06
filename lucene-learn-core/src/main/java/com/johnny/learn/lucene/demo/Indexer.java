@@ -24,7 +24,7 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
 /**
- * @Description: TODO(这里用一句话描述这个类的作用)
+ * @Description: 建立索引
  *
  * @author johnny  
  * @date 2017年3月4日 下午1:58:16
@@ -67,10 +67,13 @@ public class Indexer {
 			document.add(new TextField("contents", new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))));
 			
 			indexWriter.addDocument(document);
-			System.out.println("添加索引完成.共花费"+ (System.currentTimeMillis() - startTime)+"s");
+			System.out.println("添加索引完成.共花费"+ (System.currentTimeMillis() - startTime)+"ms");
 		} finally {
 			if(stream != null){
 				stream.close();
+			}
+			if(indexWriter != null){
+				indexWriter.close();//关闭索引写入器，否则无法创建完整索引
 			}
 		}
 		
