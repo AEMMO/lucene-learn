@@ -13,8 +13,9 @@ package com.johnny.learn.lucene.common;
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific lan      
-*/
+ */
 
+import java.io.File;
 import java.io.IOException;
 
 import org.apache.lucene.document.Document;
@@ -24,19 +25,32 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 
 public class TestUtil {
-  public static boolean hitsIncludeTitle(IndexSearcher searcher, TopDocs hits, String title)
-    throws IOException {
-    for (ScoreDoc match : hits.scoreDocs) {
-      Document doc = searcher.doc(match.doc);
-      if (title.equals(doc.get("title"))) {
-        return true;
-      }
-    }
-    System.out.println("title '" + title + "' not found");
-    return false;
-  }
+	public static boolean hitsIncludeTitle(IndexSearcher searcher,
+			TopDocs hits, String title) throws IOException {
+		for (ScoreDoc match : hits.scoreDocs) {
+			Document doc = searcher.doc(match.doc);
+			if (title.equals(doc.get("title"))) {
+				return true;
+			}
+		}
+		System.out.println("title '" + title + "' not found");
+		return false;
+	}
 
-  public static int hitCount(IndexSearcher searcher, Query query) throws IOException {
-    return searcher.search(query, 1).totalHits;
-  }
+	public static int hitCount(IndexSearcher searcher, Query query)
+			throws IOException {
+		return searcher.search(query, 1).totalHits;
+	}
+
+	public static void rmDir(File dir) throws IOException {
+		if (dir.exists()) {
+			File[] files = dir.listFiles();
+			for (int i = 0; i < files.length; i++) {
+				if (!files[i].delete()) {
+					throw new IOException("could not delete " + files[i]);
+				}
+			}
+			dir.delete();
+		}
+	}
 }

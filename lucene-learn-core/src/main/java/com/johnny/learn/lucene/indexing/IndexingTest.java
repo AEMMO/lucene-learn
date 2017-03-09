@@ -69,6 +69,7 @@ public class IndexingTest extends TestCase {
 	private IndexWriter getWriter() throws IOException {
 		Analyzer analyzer = new WhitespaceAnalyzer();
 		IndexWriterConfig writerConfig = new IndexWriterConfig(analyzer);
+		
 		return new IndexWriter(directory, writerConfig);
 
 	}
@@ -105,11 +106,11 @@ public class IndexingTest extends TestCase {
 		assertTrue(writer.hasDeletions()); // 1
 		assertEquals(2, writer.maxDoc()); // 2
 		assertEquals(1, writer.numDocs()); // 2
-		writer.close();
+		writer.close();//关闭Writer时会调用commit();
 	}
 	
 	/**
-	* @Description: 先删除再添加文档索引
+	* @Description: 更新索引文档：先删除再添加文档索引
 	* @param     设定文件 
 	* @return void    返回类型 
 	* @throws IOException
