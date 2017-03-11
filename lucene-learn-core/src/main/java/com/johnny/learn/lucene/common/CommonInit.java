@@ -14,11 +14,11 @@ import org.apache.lucene.store.RAMDirectory;
 
 public class CommonInit {
 
-	protected static String[] ids = { "1", "2" };
-	protected static String[] unindexed = { "Netherlands", "Italy" };
+	protected static String[] ids = { "1", "2", "3", "4", "5" };
+	protected static String[] unindexed = { "Netherlands", "Italy", "America", "The United Kingdom", "Germany" };
 	protected static String[] unstored = { "Amsterdam has lots of bridges",
-			"Venice has lots of canals" };
-	protected static String[] text = { "Amsterdam", "Venice" };
+			"Venice has lots of canals", "New York has lots of large building", "London has lots of river", "Berlin has lots of bridges"};
+	protected static String[] text = { "Amsterdam", "Venice", "New York", "London", "Berlin" };
 	private static Directory directory;
 
 	public synchronized static Directory initIndexDirectory() throws IOException {
