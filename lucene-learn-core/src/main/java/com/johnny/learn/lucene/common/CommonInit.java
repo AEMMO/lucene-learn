@@ -6,6 +6,7 @@ import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.core.WhitespaceAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.LongPoint;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -19,6 +20,8 @@ public class CommonInit {
 	protected static String[] unstored = { "Amsterdam has lots of bridges",
 			"Venice has lots of canals", "New York has lots of large building", "London has lots of river", "Berlin has lots of bridges"};
 	protected static String[] text = { "Amsterdam", "Venice", "New York", "London", "Berlin" };
+	//单位万
+	protected static Long[] population = {110L, 17L, 1800L, 720L, 350L};
 	private static Directory directory;
 
 	public synchronized static Directory initIndexDirectory() throws IOException {
@@ -33,6 +36,7 @@ public class CommonInit {
 			doc.add(new StringField("country", unindexed[i], Field.Store.YES));
 			doc.add(new StringField("contents", unstored[i], Field.Store.NO));
 			doc.add(new StringField("city", text[i], Field.Store.YES));
+			doc.add(new LongPoint("population", population[i]));
 			writer.addDocument(doc);
 		}
 		writer.close();
