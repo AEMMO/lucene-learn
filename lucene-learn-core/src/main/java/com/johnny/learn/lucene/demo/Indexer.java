@@ -33,7 +33,11 @@ import org.apache.lucene.store.FSDirectory;
 public class Indexer {
 
 	private IndexWriter indexWriter;
-	
+	/**
+	 * 索引（Index） -> 段（Segment） -> 文档（Document） -> 域（Field） -> 词（Term）
+	 * @param indexDir
+	 * @throws IOException
+	 */
 	public Indexer(String indexDir) throws IOException{
 		//设置索引文档存储路径
 		Path indexPath = Paths.get(indexDir);
