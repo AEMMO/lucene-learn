@@ -20,8 +20,7 @@ public class QueryTest extends TestCase {
 	}
 	
 	
-	public void testTermRangeQuery(){
-		directory = CommonInit.initIndexDirectory();
+	public void testTermRangeQuery() throws IOException{
 	}
 
 }
