@@ -21,7 +21,6 @@ public class QueryTest extends TestCase {
 	
 	
 	public void testTermRangeQuery() throws IOException{
-		
 		directory = CommonInit.initIndexDirectory();
 	}
 
